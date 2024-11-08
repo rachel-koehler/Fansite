@@ -29,6 +29,23 @@
             color: white;
         }
 
+        .text_to_display {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-horizontal 25s linear infinite;
+        }
+
+          /* Animation du défilement horizontal */
+        @keyframes scroll-horizontal {
+        0% {
+        transform: translateX(100%);
+        }
+        100% {
+      transform: translateX(-100%);
+        }
+        }
+
+
         nav ul {
             list-style-type: none;
             padding: 0;
@@ -73,7 +90,9 @@
 </head>
 <body>
     <header class="bannière">
-        <h1>Bannière</h1>
+        <div class = "text_to_display">
+            Exemple d'un défilement horizontal continu.
+        </div>
     </header>
     <nav>
         <ul>
