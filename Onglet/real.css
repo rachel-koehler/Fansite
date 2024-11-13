@@ -1,0 +1,27 @@
+header{
+font-size: xx-large;
+display: flex;
+justify-content: center;
+}
+.Ya{
+    height: 50px;
+    font-size: larger;
+}
+.Ji{
+    display: flex;
+    justify-content:space-around
+}
+p{
+    font-size: larger;
+    font-style:inherit
+}
+.Mo{
+    height: 20px;
+    font-size: larger;
+}
+.Tr{
+    font-size: larger 
+}
+body{
+    color: black;
+}
