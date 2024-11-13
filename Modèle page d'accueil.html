@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'accueil</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Bandeau défilant */
+    .bandeau_item {
+      height: 100%;
+      background-color: #DDDDDD;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding: 9px;
+    }
+
+    .scroll-container {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      /* Full width of the viewport */
+    }
+
+    /* Scrolling text styling */
+    .scroll-text {
+      display: inline-block;
+      font-size: 1.5rem;
+      padding-right: 100%;
+      /* Adds space so the text can fully scroll off-screen */
+      animation: scroll-left 200s linear infinite;
+    }
+
+    .scroll-text:hover {
+    animation-play-state: paused; /*voir si peux mettre pause moins abruptement*/
+    }
+
+    /* Define the scrolling animation */
+    @keyframes scroll-left {
+      from {
+        transform: translate3d(0, 0, 0);
+        /* Start from the right edge */
+      }
+
+      to {
+        transform: translate3d(-50%, 0, 0);
+        /* Scroll left */
+      }
+    }
+
+    /* Body and nav */
+    body{
+      background-color:#E9E9E9;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ::selection {
+      background-color: #e8ffff;
+      color: #222222;
+    }
+
+    nav {
+      background-color: #E9E9E9;
+      color: #222222;
+    }
+
+    .checkbtn {
+      font-size: 1.5rem;
+      color: #222222;
+      cursor: pointer;
+    }
+
+    #check {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      clip: rect(1px, 1px, 1px, 1px);
+      overflow: hidden;
+    }
+
+    #check:checked~.nav-mobile {
+      display: block;
+    }
+
+    .nav-mobile {
+      display: none;
+      position: absolute;
+      top: 4.5rem;
+      left: 0;
+      overflow: hidden;
+      background: #E1E1E1;
+      z-index: 1;
+      width: 200px;
+    }
+
+    .nav-mobile a {
+      color: black;
+      padding: 1rem 1.5rem;
+      display: block;
+      border-bottom-color: black;
+    }
+
+    hr {
+      background-color: #E1E1E1;
+      padding: 1px;
+      border: none;
+    }
+
+    /* Media Queries for Responsive Navigation */
+    @media only screen and (min-width: 992px) {
+
+      #check,
+      .checkbtn,
+      .nav-mobile {
+        display: none;
+        /* Hide mobile menu and icon on larger screens */
+      }
+    }
+
+    /*Navigation menu ordinateur*/
+
+    nav ul {
+      list-style-type: none;
+      margin-top: 0%;
+      display: flex; /*pr permettre de mieux jongler entre logo, barre de recherche, onglets : disposition horizontale*/
+      align-items: center;
+      padding:0;
+      gap:15px; /*espace entre les élements de navig.*/
+    }
+
+    nav ul li {
+      float: left;
+      width: 10%;
+      display: flex;
+      justify-content: center;
+      position: relative
+    }
+
+    nav ul::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    nav a {
+      display: block;
+      text-decoration: none;
+      color: #222222;
+      border-bottom: 2px solid transparent;
+      padding:10px 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #5D5D5D;
+      opacity : .7;
+
+    }
+
+    .sous {
+      /*le dur du menu déoroulant*/
+      display: none;
+      box-shadow: 0px 1px 2px #CCC;
+      background-color: white;
+    }
+
+    nav>ul li:hover .sous {
+      display: block;
+    }
+
+    .sous li {
+      float: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .sous a {
+      padding: 10px;
+      border-bottom: none;
+      color:black;
+      text-decoration:none;
+      display: block;
+    }
+
+    .sous a:hover {
+      border-bottom: none;
+      background-color: RGBa(200, 200, 200, 0.1);
+    }
+
+    .déroulant > a::after {
+    content: " ▼"; /* Flèche ajoutée après le texte */
+    font-size: 12px; /* Ajustez la taille si nécessaire */
+    margin-left: 5px; /* Un peu d'espace entre le texte et la flèche */
+    color: inherit; /* Utilise la même couleur que le texte */
+    }
+
+    /* Afficher le sous-menu au survol de l'élément parent */
+    .déroulant:hover .sous {
+      display: block;
+    }
+
+    .sous {
+      display: none;
+      box-shadow: 0px 1px 2px #CCC;
+      background-color: white;
+      top:100%;
+      left:0;
+      position: absolute;
+      width: 100%; /*essayer 200px*/
+      z-index: 1000;
+    }
+
+    /* Barre de recherche */
+    /*.search-bar input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px; Largeur de la barre de recherche }*/
+
+    .search-bar input[type="text"] {
+    width: 816px; /* Largeur exacte */
+    height: 37px; /* Hauteur exacte */
+    padding: 10px; /* Supprimer les marges internes pour une taille précise */
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclure bordure dans la taille totale */
+    background-color: #DDDDDD;
+}
+
+
+    .button {
+    background-color: black; /* Fond noir */
+    color: white; /* Texte blanc */
+    padding: 10px 20px; /* Espace interne pour un effet de bouton */
+    border-radius: 10px; /* Angles arrondis un peu*/
+    text-align: center; /* Centrer le texte */
+    text-decoration: none; /* Supprimer le soulignement du lien */
+    font-weight: bold; /* Texte en gras pour plus de visibilité */
+    display: inline-block; /* Assure le comportement de bouton */
+    transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+    /* Changement de couleur au survol */
+.button:hover {
+    background-color: #333333; /* Un noir plus clair au survol */
+}
+
+    .logo_rsx {
+      display: flex;
+      gap: 0px;
+      /* Ajustez la valeur pour l'espacement souhaité */
+      align-items: center;
+      /* Centre les logos verticalement dans le conteneur */
+
+    }
+
+
+
+    @media only screen and (max-width: 992px) {
+      .search-bar input[type="text"] {
+      width: 100%; /* Prend toute la largeur disponible sur petit écran */
+      height: auto; /* Adapte la hauteur si besoin */
+  }
+
+
+      .checkbtn {
+        display: block;
+        /* Show hamburger icon on mobile */
+      }
+
+      #check:checked~.nav-mobile {
+        display: block;
+        /* Show menu when checkbox is checked */
+      }
+
+      .nav-mobile {
+        top: 10rem;
+        width: 100%;
+      }
+
+      .nav-mobile a {
+        font-size: 2rem;
+        padding: 2rem 3rem;
+      }
+
+      .nav-ordi {
+        display: none;
+      }
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="scroll-container">
+      <div class="scroll-text">
+        <a href="contact.html" class="item_link"></a>
+        <div class="bandeau_item">
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav> <!-- Navigation mobile -->
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </label>
+    <div class="nav-mobile w3-animate-right">
+      <a href="">Actualité</a> <!-- Utiliser ::before pour rajouter le logo de la plateforme -->
+      <a href="">Réalisations</a>
+      <a href="">Evénements passés et à venir</a>
+      <a href="">Photos & Vidéos</a>
+      <a href="">Autres fansites</a>
+      <a href="">Contact</a>
+    </div>
+
+    <!-- Navigation ordinateur -->
+    <div class="nav-ordi">
+      <ul>
+        <li><a href="">Actualité</a></li>
+        <li><a href="">Réalisations</a></li>
+        <li><a href="">Evénements passés et à venir</a></li>
+        <li><a href="">Photos & Vidéos</a></li>
+
+        <li class="déroulant">
+          <a href="">Autres fansites</a>
+          <ul class="sous">
+            <li><a href="">Autre site 1</a></li>
+            <li><a href="">Autre site 2</a></li>
+            <li><a href="">Autre site 3</a></li>
+          </ul>
+        </li>
+        <!--Barre de recherche-->
+        <li class = "search-bar">
+          <input type="text" placeholder="Rechercher..." aria-label="Search">
+        </li>
+        <li><a href="" class = "button">Contact</a></li>
+
+        <!-- Logos réseaux sociaux-->
+        <li class="logo_rsx">
+          <a href=""><img src="imgs/logo/instagram.png" alt="Logo Instagram" width="20" height="20"></a>
+          <a href=""><img src="imgs/logo/twitter.png" alt="Logo Twitter" width="20" height="20"></a>
+          <a href=""><img src="imgs/logo/youtube.png" alt="Logo YouTube" width="20" height="20"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+</body>
+
+</html>
+
