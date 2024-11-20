@@ -1,0 +1,191 @@
+<!--Couleurs
+#CCC pour Box shadows pour menu déroulant av ordi (.sous)
+#DDDDDD pour background-color du bandeau défilant
+        pour la barre de recherche
+#E1E1E1 pour le fond de la nivgation mobile
+#E9E9E9 pour le fond du bouton "se connecter" navig ordi
+        pour fond du site ordi/phone (body à remplacer main)
+        pour la barre de navigation
+RGBa(200, 200, 200, 0.1) pour qd on passe souris sur l'onglet déroulant "Autres fansites"(voir .sous a:hover)
+#5D5D5D pour qd on passe la souris sur onglet barre nav ordi
+#333333 pour qd on survole les boutons "contact" et "se connecter"
+#222222 pour couleur police ::selection
+        pour police texte navigation
+        pour pour le menu burger
+        pour chaque nom d'onglet
+        pour les bordures du bouton "se connecter"
+white pour la couleur de fond du menu déroulant "Autre fansites"
+black pour bouton "contact"
+      pour contour bouton "se connecter"
+      pour police navig mobile / ordi
+      pour les bordures des onglets ds menu téléphone
+      pour police des sous-onglets de l'onget "Autres fansites"
+transparent pour les onglets des la barre nav ordi
+#e8fff pour couleur fond ::selection-->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'accueil</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+ 
+
+  <body>
+    <header>
+        <a href="contact.html" class="item_link"> <!-- Bandeau défilant -->
+        <div class = "scroll-container">
+            <div class="scroll-text">
+                <div class="bandeau_item">
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                  &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+                </div>
+              </div>
+        </div></a>
+    </header>
+    <nav>
+        <div class = "nav_ordi"> <!-- Navigation ordinateur -->
+            <div class="onglets">
+                <ul>
+                    <li><a href="">Actualité</a></li>
+                    <li><a href="">Réalisations</a></li>
+                    <li><a href="">Evénements passés et à venir</a></li>
+                    <li><a href="">Photos & Vidéos</a></li>
+            
+                    <li class="déroulant">
+                      <a href="">Autres fansites</a>
+                      <ul class="sous">
+                        <li><a href="">Autre site 1</a></li>
+                        <li><a href="">Autre site 2</a></li>
+                        <li><a href="">Autre site 3</a></li>
+                      </ul>
+                    </li>
+                </ul> 
+            </div>
+            <div class = "barre_de_recherche"> <!--Barre de recherche-->
+                <input type="text" placeholder="Rechercher..." aria-label="Search">
+            </div>
+            <div class="boutons">
+                <a href="" class = "button">Contact</a>
+                <a href="" class = "boutton_se_connecter">Se connecter</a>
+            </div>
+            <div class = "logo_rsx">
+                <a href=""><img src="imgs/logo/instagram.png" alt="Logo Instagram" width="20" height="20"></a>
+                <a href=""><img src="imgs/logo/twitter.png" alt="Logo Twitter" width="20" height="20"></a>
+                <a href=""><img src="imgs/logo/youtube.png" alt="Logo YouTube" width="20" height="20"></a>
+            </div>
+        </div>
+        <div class="nav_mobile"> <!-- Navigation mobile -->
+            <div class="burger">
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn" aria-expanded="false">
+                <i class="fas fa-bars"></i></label>
+            </div>
+            <div class="burger_déroulant" >
+                <ul>
+                    <li><a href="">Actualité</a></li>
+                    <li><a href="">Réalisations</a></li>
+                    <li><a href="">Evénements passés et à venir</a></li>
+                    <li><a href="">Photos & Vidéos</a></li>
+            
+                    <li class="déroulant">
+                      <a href="">Autres fansites</a>
+                      <ul class="sous">
+                        <li><a href="">Autre site 1</a></li>
+                        <li><a href="">Autre site 2</a></li>
+                        <li><a href="">Autre site 3</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main></main>
+    <footer></footer>
+  </body>
+
+  <style>
+    :root{
+        --primary-color: #E9E9E9;
+        --secondary-color: #DDDDDD;
+        --terci-color: #222222;
+    }
+
+    .body {
+        background-color: var(--primary-color);
+        color:var(--terci-color);
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    /*Bandeau défilant*/
+    .bandeau_item {
+      height: 100%;
+      background-color: var(--secondary-color);
+      color:var(--terci-color);
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      padding: 9px;
+    }
+
+    .scroll-container {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%; /* Full width of the viewport */
+    }
+
+    .scroll-text { /* Scrolling text styling */
+      display: inline-block;
+      font-size: 1.5rem;
+      padding-right: 100%;
+      /* Adds space so the text can fully scroll off-screen */
+      animation: scroll-left 200s linear infinite;
+    }
+
+    .scroll-text:hover {
+    animation-play-state: paused; /*voir si peux mettre pause moins abruptement*/
+    }
+
+    /* Animation  */
+       @keyframes scroll-left {
+      from {
+        transform: translate3d(0, 0, 0);
+        /* Start from the right edge */
+      }
+
+      to {
+        transform: translate3d(-50%, 0, 0);
+        /* Scroll left */
+      }
+    }
+
+    /*.nav {
+        background-color: var(--primary-color);
+        color:var(--terci-color);
+    }*/
+
+    /*Barre de navigation mobile*/
+    
+    /*Barre de navigation ordinateur*/
+   
+
+    
+
+  </style>

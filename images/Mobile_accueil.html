@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <title>Mobile Version</title>
+    <style>
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        /* || Bannière*/
+        .bannière {           
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #DDDDDD;
+            color: black;
+        }
+
+        .text_to_display {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-horizontal 20s linear infinite;
+        }
+
+        /*Animation du défilement horizontal*/
+        /*@keyframes scroll-horizontal {
+        0% {
+        transform: translateX(100%);
+        }
+        100% {
+        transform: translateX(-100%);
+        }
+        }
+
+        /* || Barre de navigation supérieure*/
+        nav {
+        padding: 1.5rem 2rem;
+        background-color: #222831;
+        color: #fff;
+        }
+        /*Barre de navigation mobile*/
+        .checkbtn {
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+        }
+
+        /*Occulte navig_moile sur ordinateur*/
+        .navig_mobile {
+        display: none;
+        }
+
+        /*Dévoile la navig-mobile qd coché*/
+        #check:checked ~ .navig_mobile {
+        display: block;
+        position: absolute;
+        top: 4.5rem;
+        left: 0;
+        background: #222831;
+        z-index: 1;
+        width: 100%;
+        }
+        
+        /*Stylise la navigation mobile*/
+        .navig_mobile a {
+        color: #fff;
+        padding: 1rem 1.5rem;
+        display: block;
+        }
+
+        @media only screen and (max-width: 992px) {
+        .checkbtn {
+            display: block;
+            font-size: 2rem;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .navig_ordi {
+            display:  none;
+        }
+        }
+
+        /*Barre de navigation ordinateur*/
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        /*Titre principal*/
+        h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* || Contenu*/
+        body {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 940px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+        }
+
+        .wrapper {
+            padding: 10px;
+        }
+
+        .section_article_1 {
+            background-color: #F8EBEB;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+
+        /* Responsive styling for larger screens */
+        @media (min-width: 600px) {
+            body {
+                font-size: 1.2rem;
+            }
+
+            .wrapper {
+                margin: 20px auto;
+                padding: 20px;
+            }
+        }      
+
+        /* || Barre de navigation inférieure*/
+        footer {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: yellow;
+            border-top: 1px solid #000;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header class="bannière">
+        <!--<div class = "text_to_display">
+            <strong>Bookez un rendez-vous,</strong> La Plateforme studio, le meilleur du webdesign ( • ᴗ - ) ✧    
+            <span style="padding: 0 50px;"> Espace entre répétitions 
+            </span> <strong>Bookez un rendez-vous,</strong> La Plateforme studio, le meilleur du webdesign ( • ᴗ - ) ✧
+        </div>-->
+    </header>
+    <nav>
+        <!--<input type="checkbox" id="check">-->
+        <label for="check" class="checkbtn">☰</label>
+    <!--Barre de navigation portable-->
+        <div class = "navig_mobile">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Actualité</a></li>
+                <li><a href="#">Événements</a></li>
+                <li><a href="#">Galerie</a></li>
+                <li><a href="#">Autres liens</a></li>        
+            </ul>
+        </div>
+    <!--Barre de navigation ordinateur-->
+        <div class = "navig_ordi">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Actualité</a></li>
+                <li><a href="#">Événements</a></li>
+                <li><a href="#">Galerie</a></li>
+                <li><a href="#">Autres liens</a></li>        
+            </ul>
+        </div>
+    </nav>
+
+    <!--Corps du texte-->
+    <section class="wrapper">
+        <article class="article_1">
+            <header class="header_article_1">
+                <h2>Al-Idriss, le père de la cartographie</h2>
+            </header>
+            <section class="section_article_1">
+                <p>Un même HTML, trois CSS différents.</p>
+                <!-- <img src="images/Tabula_Rogeriana.jpg" alt="Image de la Tabula Tabula_Rogeriana"> -->
+            </section>
+        </article>
+    </section>
+    <footer>
+        <p>Future barre de navigation flottante</p>
+    </footer>
+</body>
+</html>
+

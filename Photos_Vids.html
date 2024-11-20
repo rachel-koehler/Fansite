@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page d'accueil</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ----------- GLOBAL STYLES ----------- */
+body {
+    background-color: #E9E9E9;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, p, a {
+    margin: 0;
+    text-decoration: none;
+}
+
+p {
+    margin: 1rem 0;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    background-color: #e8ffff;
+    color: #222222;
+}
+
+/* ----------- BANDEAU DÉFILANT ----------- */
+.bandeau_item {
+    height: 100%;
+    background-color: #DDDDDD;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 9px;
+}
+
+.scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%; /* Full width of the viewport */
+}
+
+.scroll-text {
+    display: inline-block;
+    font-size: 1.5rem;
+    padding-right: 100%;
+    animation: scroll-left 200s linear infinite;
+}
+
+.scroll-text:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+/* ----------- NAVIGATION MENU ----------- */
+nav {
+    background-color: #E9E9E9;
+    color: #222222;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+nav ul li {
+    position: relative;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    font-weight: bold;
+    color: #222222;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    color: #5D5D5D;
+    opacity: 0.7;
+}
+
+/* Sous-menu */
+.déroulant > a::after {
+    content: " ▼";
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.sous {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 1px 2px #CCC;
+    z-index: 1000;
+}
+
+.sous li {
+    text-align: left;
+}
+
+.sous a {
+    padding: 10px;
+    color: black;
+    display: block;
+}
+
+.sous a:hover {
+    background-color: rgba(200, 200, 200, 0.1);
+}
+
+.déroulant:hover .sous {
+    display: block;
+}
+
+/* ----------- RESPONSIVE NAVIGATION ----------- */
+.checkbtn {
+    font-size: 1.5rem;
+    color: #222222;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    overflow: hidden;
+}
+
+#check:checked~.nav-mobile {
+    display: block;
+}
+
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 4.5rem;
+    left: 0;
+    width: 200px;
+    background: #E1E1E1;
+    z-index: 1;
+}
+
+.nav-mobile a {
+    padding: 1rem 1.5rem;
+    display: block;
+    color: black;
+}
+
+/* Responsive for larger screens */
+@media only screen and (min-width: 992px) {
+    #check, .checkbtn, .nav-mobile {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .checkbtn {
+        display: block;
+    }
+    .nav-mobile {
+        width: 100%;
+        top: 10rem;
+    }
+}
+
+/* ----------- SEARCH BAR ----------- */
+.search-bar input[type="text"] {
+    width: 816px;
+    height: 37px;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #DDDDDD;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 992px) {
+    .search-bar input[type="text"] {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* ----------- BUTTONS ----------- */
+.button, .boutton_se_connecter {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.button {
+    background-color: black;
+    color: #E9E9E9;
+}
+
+.button:hover {
+    background-color: #333333;
+}
+
+.boutton_se_connecter {
+    background-color: #E9E9E9;
+    color: black;
+    border: 2px solid #222222;
+}
+
+/* ----------- IMAGE STYLES ----------- */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_figure {
+    position: relative;
+    background-color: #222222;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: auto;
+}
+
+.tabula_main {
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+/* ----------- LIGHTBOX ----------- */
+.lightbox-target {
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-target img {
+    max-height: 80%;
+    max-width: 80%;
+    border: 3px solid white;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    transition: .5s ease-in-out;
+}
+
+a.lightbox-close {
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: -80px;
+    right: 0;
+    transition: .5s ease-in-out;
+}
+
+a.lightbox-close:before, a.lightbox-close:after {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 1px;
+    background: black;
+    left: 26px;
+    top: 10px;
+}
+
+a.lightbox-close:before {
+    transform: rotate(45deg);
+}
+
+a.lightbox-close:after {
+    transform: rotate(-45deg);
+}
+
+.lightbox-target:target {
+    opacity: 1;
+    top: 0;
+}
+
+.lightbox-target p {
+    color: white;
+    margin: 20px auto;
+    max-width: 80%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*Galerie images*/
+body{
+            text-align: center;
+            margin: 0px 2em;
+            font-family: arial;
+        }
+        
+        input{
+            display: none;
+        }
+
+        .tag{
+            font-size: 20px;
+            margin: 1.5em 0px;
+            padding: 5px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            cursor: pointer;
+            background: #efefef;
+            text-decoration: none;
+            color: black;
+            border: 1px solid #ccc;
+        }
+
+        img {
+            max-width: 300px;
+            width: 300px;
+            transition: all .4s ease-in-out;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        /*filter CSS */
+
+         #Commerce:checked ~ .images > img:not([class*='commerce']),
+         #Mappemonde:checked ~ .images > img:not([class*='mappemonde']),
+         #Tabula:checked ~ .images > img:not([class*='tabula']){
+           width: 0px;
+           height: 0px;
+        }
+
+        #all:checked ~ .all,
+        #Commerce:checked ~ .tag1, 
+        #Mappemonde:checked ~ .tag2, /*mettre sur le volet gauche with "aside" peut-être sur ordi, et sur mobile mettre les filtres tout en haut, et au fil de la navig (scroll des images vers le bas) les rendres ths disponnibles pour l'utilisateurs"*/
+        #Tabula:checked ~ .tag3{
+            background-color: #333333;      
+            color: white;
+        }
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="scroll-container">
+      <div class="scroll-text">
+        <a href="contact.html" class="item_link"></a>
+        <div class="bandeau_item">
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+          &nbsp; ✿◕ ‿ ◕✿ &nbsp; Bookez un rendez-vous, c'est par <strong> là</strong> &nbsp;
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav> <!-- Navigation mobile -->
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </label>
+    <div class="nav-mobile w3-animate-right">
+      <a href="">Actualité</a> <!-- Utiliser ::before pour rajouter le logo de la plateforme -->
+      <a href="">Réalisations</a>
+      <a href="">Evénements passés et à venir</a>
+      <a href="">Photos & Vidéos</a>
+      <a href="">Autres fansites</a>
+      <a href="">Contact</a>
+    </div>
+
+    <!-- Navigation ordinateur -->
+    <div class="nav-ordi">
+      <ul>
+        <li><a href="">Actualité</a></li>
+        <li><a href="">Réalisations</a></li>
+        <li><a href="">Evénements passés et à venir</a></li>
+        <li><a href="">Photos & Vidéos</a></li>
+
+        <li class="déroulant">
+          <a href="">Autres fansites</a>
+          <ul class="sous">
+            <li><a href="">Autre site 1</a></li>
+            <li><a href="">Autre site 2</a></li>
+            <li><a href="">Autre site 3</a></li>
+          </ul>
+        </li>
+        <!--Barre de recherche-->
+        <li class = "search-bar">
+          <input type="text" placeholder="Rechercher..." aria-label="Search">
+        </li>
+        <li><a href="" class = "button">Contact</a></li>
+        <li><a href="" class = "boutton_se_connecter">Se connecter</a></li>
+
+        <!-- Logos réseaux sociaux-->
+        <li class="logo_rsx">
+          <a href=""><img src="imgs/logo/instagram.png" alt="Logo Instagram" width="20" height="20"></a>
+          <a href=""><img src="imgs/logo/twitter.png" alt="Logo Twitter" width="20" height="20"></a>
+          <a href=""><img src="imgs/logo/youtube.png" alt="Logo YouTube" width="20" height="20"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<main>
+    <input type="radio" id="all" name="button" checked>
+            <input type="radio" id="Commerce" name="button">
+            <input type="radio" id="Mappemonde" name="button">
+            <input type="radio" id="Tabula" name="button">
+            
+            <label class="tag all" for="all">Tout</label>
+            <label class="tag tag1" for="Commerce">Commerce</label>
+            <label class="tag tag2" for="Mappemonde">Mappemonde</label>
+            <label class="tag tag3" for="Tabula">Tabula Regina</label>
+            <br>
+
+            <div class = "images"> <!--https://codepen.io/asifurrahaman754/pen/MWeGJwM-->
+
+                <img src="illustrations/mappemonde/map0.jpg" alt="" class="mappemonde">
+                <img src="illustrations/mappemonde/map1.jpg" alt="" class="mappemonde" width = "230" height = "230">
+                <img src="illustrations/mappemonde/map2.jpg" alt="" class="mappemonde" width = "230" height = "230">
+                <img src="illustrations/mappemonde/map4.jpg" alt="" class="mappemonde" width = "230" height = "230">
+                <img src="illustrations/mappemonde/map5.jpg" alt="" class="mappemonde" width = "230" height = "230">
+                <img src="illustrations/mappemonde/map6.jpg" alt="" class="mappemonde" width = "230" height = "230">
+                <img src="illustrations/mappemonde/map7.jpg" alt="" class="mappemonde" width = "230" height = "230">
+                <img src="illustrations/mappemonde/map10.jpg" alt="" class="mappemonde" width = "230" height = "230">
+                <img src="illustrations/mappemonde/map12.jpg" alt="" class="mappemonde" width = "230" height = "230">
+
+                <img src="illustrations/commerces/commerce_1.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_2.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_3.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_4.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_5.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_6.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_7.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_8.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_9.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_10.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_11.jpg" alt="" class="commerce" width = "230" height = "230">
+                <img src="illustrations/commerces/commerce_12.jpg" alt="" class="commerce" width = "230" height = "230">
+
+                <img src="illustrations/tabula_regina/explo_1.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_2.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_3.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_4.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_5.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_6.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_7.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_8.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_9.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_10.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_11.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_12.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_13.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_14.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_15.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_16.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_17.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_18.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_19.jpg" alt="" class="tabula">
+                <img src="illustrations/tabula_regina/explo_20.jpg" alt="" class="tabula"> 
+
+            </div>
+</main>
+</body>
+
+</html>
+

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang = "fr"> <!-- met en français-->
+<head>
+    <meta charset = "UTF-8"> <!--permet de rendre lisible les accents français notamment-->
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0"> <!-- permet de faire du responsive -->
+    <link rel="stylesheet" type="text/css" href="fansite1.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <title>Fansite1 ( • ᴗ - ) ✧</title>
+    <style> /**/
+        *{
+            margin:0px;
+            padding: 0px;
+            font-family: "Trirong", serif ;
+            background-color:#EDEEE9;
+
+        }
+
+        nav{
+            width: 100%;
+            margin: 0 auto;
+            background-color:white;
+            position: sticky;
+            top: 0px;
+        }
+
+        nav ul {
+            list-style-type: none;
+        }
+
+        nav ul li {
+            width: 150px;
+            height: 30px;
+            float: left;
+            text-align: center;
+        }
+
+        nav ul::after{
+            content:"";
+            display: table;
+            clear: both;
+        }
+
+        nav a {
+            justify-content: center;
+            width: 150px;
+            height: 30px;
+            display: block;
+            text-decoration: none;
+            color:black;
+            border-bottom: 2px solid transparent;
+            padding: 10px 0 px;
+        }
+
+        nav a:hover {
+            color:orange;
+            border-bottom: 2px solid gold;
+        }
+
+        .sous{ /*le dur du menu déoroulant*/
+            display: none;
+            box-shadow: 0px 1px 2px #CCC;
+            background-color: white;
+        }
+
+        nav > ul li:hover .sous{
+            display: block;
+        }
+
+        .sous li{
+            float: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sous a {
+            padding: 10px;
+            border-bottom: none;
+        }
+
+        .sous a:hover{
+            border-bottom:none;
+            background-color: RGBa(200, 200, 200, 0.1);
+        }
+
+        .déroulant > a::after{
+            content: " ▼";
+            font-size: 12px;
+        }
+
+        .sous{
+            display:none;
+            box-shadow: 0px 1px 2px #CCC;
+            background-color: white;
+            position:absolute;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav ul li {
+            float: ledt;
+            width: 25%;
+            text-align: center;
+            position: relative;
+        }
+
+        .RéseauxSo a {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<nav> <!--mettre à l'horizontale-->
+    <ul class = "onglets">
+        <li><a href="onglets/actualité.html">Actualité</a></li>
+        <li><a href="onglets/réalisations.html">Réalisations</a></li>
+        <li><a href="onglets/events.html">Événements passés/à venir</a></li>
+        <li><a href="onglets/photos_vids.html">Photos et vidéos</a></li> <!--Galerie photos type grid ? (pas pour tous peut-être)-->
+        <li class = "déroulant"><a href="onglets/autres_sites.html">Autres sites</a> <!--liens vers autres sites web, ie. faire une liste déroulante de 3 ou 4 options-->
+            <ul class = "sous">
+                <li><a href="#">Autre site 1</a></li>
+                <li><a href="#">Autre site 2</a></li>
+                <li><a href="#">Autre site 3</a></li>
+                <li><a href="#">Autre site 4</a></li>
+            </ul>
+        </li>
+    </ul>
+    <ul class = "RéseauxSo">
+        <li><a href="onglets/contact.html">Contact</a></li> <!--inspired from https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form-->
+        <li><a href=""> <!--insérer réseau social n°1 et etc. Eventuellement faire un sorte d'ouvrir la page ds un autre onglet-->
+            <img src="images/youtube.png" alt="Logo youtube" width="20" height="20"></a></li>
+        <li><a href=""> <!--insérer réseau social n°2 et etc-->
+            <img src="images/instagram.png" alt="Logo instagram" width="20" height="20"></a></li> <!--chnager taille logos-->
+        <li><a href=""> <!--insérer réseau social n°3 et etc-->
+            <img src="images/twitter.png" alt="Logo twitter" width="20" height="20"></a></li>
+        <input class = "search_bar" type="text" placeholder="Search" required/> <!--pour insérer une barre de recherche MAIS pas nécessaire si pas de back-end, option à creuser-->
+    </ul>
+  
+</nav>
+
+    
+</body>
+</html>

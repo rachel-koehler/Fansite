@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang = "fr"> <!-- met en français-->
+<head>
+    <meta charset = "UTF-8"> <!--permet de rendre lisible les accents français notamment-->
+	<meta name = "viewport" content = "width=device-width, initial-scale=1.0"> <!-- permet de faire du responsive -->
+    <style>
+        .form {
+      align-self: center;
+    }
+
+/* Polic */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Styles de fond*/
+
+.nav {
+    list-style-type: none;
+
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  position: relative;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: #EDEEE9;
+}
+
+body {
+  background-color: #EDEEE9;
+  color: #303030;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2.5vh 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+body h1 {
+  font-size: clamp(1rem, 6vw, 10rem);
+  margin: 15vh 0 2rem;
+}
+
+body a {
+  text-decoration: underline;
+  color: #303030;
+}
+
+body code {
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  background-color: #D8DBCE;
+}
+
+.explanation {
+  width: 100%;
+  margin-bottom: 15vh;
+}
+
+.explanation p {
+  font-size: 1rem;
+  max-width: 75ch;
+  margin: 2rem 0;
+}
+
+.explanation ul:last-child {
+  margin-bottom: 2rem;
+}
+
+.explanation ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.explanation ul li {
+  list-style: none;
+  position: relative;
+  margin: 0.5rem 0;
+}
+
+.explanation ul li::before {
+  content: '👉';
+  position: absolute;
+  top: -0.25rem;
+  left: -2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 768px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2rem 1.5rem;
+  background-color: #D8DBCE;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cta-form {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .cta-form {
+    margin-bottom: 0;
+    margin-right: 2rem;
+    text-align: left;
+  }
+}
+
+.cta-form h2 {
+  font-size: 1.5rem;
+  width: 100%;
+  max-width: 25ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .cta-form h2 {
+    text-align: left;
+    margin: 0;
+  }
+}
+
+.cta-form p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 24ch;
+}
+
+/* Form-related Styles */
+.form {
+  align-self: center;
+}
+
+.form__input {
+  width: clamp(120px, 50vw, 420px);
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  border: 1px solid #303030;
+  border-radius: 2px;
+  margin: 0.625rem auto;
+  transition: all 250ms;
+}
+
+@media (min-width: 768px) {
+  .form__input {
+    width: clamp(120px, 35vw, 420px);
+  }
+}
+
+.form__input:focus {
+  outline: none;
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label {
+  transform: translateY(-4.50rem) scale(1);
+  color: #303030;
+}
+
+.form__input::placeholder {
+  display: none;
+  color: transparent;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.form__input:not(:placeholder-shown) {
+  border-top-color: rgba(0, 0, 0, 0.5);
+}
+
+.form__label {
+  font-size: 1rem;
+  color: #909090;
+  display: block;
+  transform: translate(1.25rem, -2.5rem);
+  transform-origin: 0 0;
+  transition: all 500ms;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+    /* Future Animation */
+.button::after,
+.button::before {
+  content: "";
+  position: absolute;
+  border: 2px solid white;
+  width: calc(100% + 15px);
+  height: 60px;
+  transition: 0.5s ease;
+}
+
+.button::after {
+  top: -15px;
+  left: -15px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.button::before {
+  bottom: -15px;
+  right: -15px;
+  border-left: none;
+  border-top: none;
+}
+
+.button:hover::after,
+.button:hover::before {
+  width: calc(100% - 30px);
+  height: 80px;
+}
+
+
+    </style>
+</head>
+<body>
+    <header> <!--rajouter une couleur-->
+
+        <nav> <!--mettre à l'horizontale-->
+            <ul class = "nav">
+                <li><a href="actualité.html">Actualité</a></li>
+                <li><a href="réalisations.html">Réalisations</a></li>
+                <li><a href="events.html">Événements passés/à venir</a></li>
+                <li><a href="photos_vids.html">Photos et vidéos</a></li> <!--Galerie photos type grid ? (pas pour tous peut-être)-->
+                <li><a href="autres_sites.html">Autres sites</a></li> <!--liens vers autres sites web, ie. faire une liste déroulante de 3 ou 4 options-->
+                <li><a href="onglets/contact.html">Contact</a></li> <!--inspired from https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form-->
+                <li><a href=""> <!--insérer réseau social n°1 et etc. Eventuellement faire un sorte d'ouvrir la page ds un autre onglet-->
+                    <img src="images/youtube.png" alt="Logo youtube" width="20" height="20"></a></li>
+                <li><a href=""> <!--insérer réseau social n°2 et etc-->
+                    <img src="images/instagram.png" alt="Logo instagram"></a></li> <!--chnager taille logos-->
+                <li><a href=""> <!--insérer réseau social n°3 et etc-->
+                    <img src="images/twitter.png" alt="Logo twitter" width="20" height="20"></a></li>
+                <input type="text" placeholder="Search" required/> <!--pour insérer une barre de recherche MAIS pas nécessaire si pas de back-end, option à creuser-->
+            </ul>
+          
+        </nav>
+    </header>
+    <div class="cta-form">
+      </div>
+      <form action="" class="form">
+        
+        <input type="text" placeholder="Name" class="form__input" id="name">
+        <label for="name" class="form__label">Nom</label>
+
+        <input type="text" placeholder="Name" class="form__input" id="name">
+        <label for="name" class="form__label">Prénom</label>
+
+        <input type="text" placeholder="Adress" class="form__input" id="name">
+        <label for="name" class="form__label">1 allée des Arômes, 13410 Lambesc</label>
+    
+        <input type="email" placeholder="Email" class="form__input" id="email">
+        <label for="email" class="form__label">Email</label>
+    
+        <input type="msg" placeholder="Message" class="form__input" id="email">
+        <label for="msg" class="form__label">Message</label>
+
+        <p class="button">
+            <button type="submit">Envoyer</button>
+        </p>
+        
+      </form>  
+    </div>
+</body>
+</html>

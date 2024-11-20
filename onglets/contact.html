@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang = "fr"> <!-- met en français-->
+<head>
+    <meta charset = "UTF-8"> <!--permet de rendre lisible les accents français notamment-->
+	  <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> <!-- permet de faire du responsive -->
+    <style>
+        body {
+  /* Center the form on the page */
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  /* Form outline */
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+}
+
+p + p {
+  margin-top: 1em;
+}
+
+label {
+  /* Uniform size & alignment */
+  display: inline-block;
+  min-width: 90px;
+  text-align: right;
+}
+
+input,
+textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, text areas have a monospace font */
+  font: 1em sans-serif;
+  /* Uniform text field size */
+  width: 300px;
+  box-sizing: border-box;
+  /* Match form field borders */
+  border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+  /* Set the outline width and style */
+  outline-style: solid;
+  /* To give a little highlight on active elements */
+  outline-color: #000;
+}
+
+textarea {
+  /* Align multiline text fields with their labels */
+  vertical-align: top;
+  /* Provide space to type some text */
+  height: 5em;
+}
+
+.button {
+  /* Align buttons with the text fields */
+  padding-left: 90px; /* same size as the label elements */
+}
+
+button {
+  /* This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+  margin-left: 0.5em;
+}
+    </style>
+    <title>Fansite1 ( • ᴗ - ) ✧</title>
+</head>
+
+<body>
+
+  <header> <!--rajouter une couleur-->
+
+    <nav> <!--mettre à l'horizontale-->
+        <ul class = "nav">
+            <li><a href="">Actualité</a></li>
+            <li><a href="">Réalisations</a></li>
+            <li><a href="">Événements passés/à venir</a></li>
+            <li><a href="">Photos et vidéos</a></li> <!--Galerie photos type grid ? (pas pour tous peut-être)-->
+            <li><a href="">Autres sites</a></li> <!--liens vers autres sites web, ie. faire une liste déroulante de 3 ou 4 options-->
+            <li><a href="onglets/contact.html">Contact</a></li> <!--inspired from https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form-->
+            <li><a href=""> <!--insérer réseau social n°1 et etc. Eventuellement faire un sorte d'ouvrir la page ds un autre onglet-->
+                <img src="images/youtube.png" alt="Logo youtube"></a></li>
+            <li><a href=""> <!--insérer réseau social n°2 et etc-->
+                <img src="images/instagram.png" alt="Logo instagram"></a></li> <!--chnager taille logos-->
+            <li><a href=""> <!--insérer réseau social n°3 et etc-->
+                <img src="images/twitter.png" alt="Logo twitter"></a></li>
+            <input type="text" placeholder="Search" required/> <!--pour insérer une barre de recherche MAIS pas nécessaire si pas de back-end, option à creuser-->
+        </ul>
+      
+    </nav>
+  </header>
+
+    <form action="/my-handling-form-page" method="post">
+        <p>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name" />
+        </p>
+        <p>
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" name="user_email" />
+        </p>
+        <p>
+          <label for="msg">Message:</label>
+          <textarea id="msg" name="user_message"></textarea>
+        </p>
+        <input type="text" value="by default this element is filled with this text" />
+        <p class="button">
+            <button type="submit">Send your message</button>
+        </p>
+            
+
+      </form>
+
+      
+</body>
+</html>

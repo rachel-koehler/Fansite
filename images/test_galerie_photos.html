@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- met en français-->
+
+<head>
+  <meta charset="UTF-8"> <!--permet de rendre lisible les accents français notamment-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- permet de faire du responsive -->
+  <title>Galerie photos</title>
+  <style>
+    .gallery img {
+      /*STEP5*/
+      border-radius: 10px;
+      /*STEP 16*/
+      object-fit: cover;
+      /*STEP15 allow us to get responsive without media querries just flexbox*/
+      width: 100%;
+      max-width: 350px;
+      height: 300px;
+    }
+
+    body {
+      /*STEP6*/
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f5f6f7;
+    }
+
+    body .gallery {
+      width: 100%;
+    }
+
+    .header {
+      text-align: center;
+      /*STEP8*/
+      text-transform: uppercase;
+      /*STEP7*/
+      padding: 32px;
+      /*???*/
+      background-color: #0a0a23;
+      color: #fff;
+      /*couleur du texte*/
+      border-bottom: 4px solid #fdb347;
+      /*STEP7*/
+    }
+
+    .gallery {
+      /*STEP9*/
+      gap: 16px;
+      /*STEP16*/
+      display: flex;
+      /*will turn the gallery class into a manageable flex container*/
+      flex-direction: row;
+      /*STEP10*/
+      flex-wrap: wrap;
+      /*STEP11*/
+      justify-content: center;
+      /*STEP12*/
+      align-items: center;
+      /*STEP13*/
+      padding: 20px 10px;
+      /*STEP14*/
+      max-width: 1400px;
+      margin: 0;
+    }
+
+    .gallery::after {
+      /*STEP17 You can use it to add an empty element after the last image. If you give it the same width as the images it will push the last image to the left when the gallery is in a two-column layout. Right now, it is in the center because you set justify-content: center on the flex container.*/
+      content: "";
+      width: 350px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header"> <!--STEP3-->
+    <h1>Exemple d'une galerie photos</h1> <!--STEP3-->
+  </header>
+  <div class="gallery"> <!--STEP4-->
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/1.jpg" alt="chat1">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/2.jpg" alt="chat2">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/3.jpg" alt="chat3">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/4.jpg" alt="chat4">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/5.jpg" alt="chat5">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/6.jpg" alt="chat6">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/7.jpg" alt="chat7">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/8.jpg" alt="chat8">
+    <img src="https://cdn.freecodecamp.org/curriculum/css-photo-gallery/9.jpg" alt="chat9">
+  </div>
+</body>
+
+</html>
+
+<!-- ajuster la taille du conteneur pour mettre l'affichage de 5 image sur une même ligne puis passer à la suivante, le tout avec flex-wrap: wrap;-->
